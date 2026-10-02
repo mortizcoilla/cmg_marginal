@@ -26,6 +26,19 @@ python3 cmg-forecast/src/build_models.py            # SARIMAX + LightGBM + walk-
 python3 cmg-forecast/src/build_dashboard.py         # dashboard HTML
 ```
 
+## Despliegue (Vercel)
+
+El dashboard es 100% estático, **zero-build**. El repo incluye `vercel.json`
+(rewrite de la home → `/dashboard/`, clean URLs, caché immutable para el
+vendor de D3 y headers de seguridad).
+
+1. Push a GitHub (`mortizcoilla/cmg_marginal`).
+2. En [vercel.com](https://vercel.com): *Add New… → Project* → importar el repo.
+3. Framework Preset: **Other** · Build Command: *(vacío)* · Output Directory: *(vacío)*.
+4. Deploy.
+
+Alternativa CLI: `npx vercel` desde la raíz del repo.
+
 ## Estructura
 
 ```
